@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Status</td>
+        <td>Action</td>
+    </tr>
+    <tr>
+    <tr th:each="item,count : ${listTable}">
+        <td th:text="${count.count}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.status}"></td>
+        <td>
+            <button><a th:href="@{'/pools/order/' + ${item.id} }">Order</a></button>
+        </td>
+    </tr>
+    </tr>
+
+    <a class="btn btn-primary" th:if="${listTable.hasPrevious()}"
+       th:href="@{/pools/page(page=${listTable.number - 1})}">Previous</a>
+    <span th:text="${listTable.number + 1}"></span> | <span th:text="${listTable.totalPages}"></span>
+    <a class="btn btn-primary" th:if="${listTable.hasNext()}"
+       th:href="@{/pools/page(page=${listTable.number + 1})}">Next</a>
+
+</table>
+</body>
+</html>

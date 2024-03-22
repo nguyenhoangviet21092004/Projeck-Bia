@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="get">
+
+    <table>
+        <tr>
+            <td>#</td>
+            <td>Name</td>
+            <td>Type</td>
+            <td>Status</td>
+            <td>Action</td>
+        </tr>
+        <tr>
+        <tr th:each="item,count : ${listRoom}">
+            <td th:text="${count.count}"></td>
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.type}"></td>
+            <td th:text="${item.status}"></td>
+            <td>
+                <button><a th:href="@{'/pools/view/'+ ${item.id} }">View</a></button>
+            </td>
+        </tr>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

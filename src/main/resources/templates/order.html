@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/pools/order}" th:object="${order}" method="post">
+    <input th:field="*{startTime1}" size="5" placeholder="Start time : 00"> :
+    <input th:field="*{endTime1}" size="5" placeholder="00"> --
+    <input th:field="*{startTime2}" size="5" placeholder="End time : 00"> :
+    <input th:field="*{endTime2}" size="5" placeholder="00">
+    <input type="hidden" th:field="*{poolTable}">
+    <button><a>Order</a></button>
+</form>
+
+</body>
+</html>
